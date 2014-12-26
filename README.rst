@@ -86,8 +86,8 @@ libraries.
 At this time Heroku doesn't provide such shared libraries for all Python
 runtimes they provide. The only runtime that it is known they currently
 provide them for is Python 3.4.1. As a result, you must be using Python
-3.4.1 and have set ``3.4.1`` in the ``runtime.txt`` file that controls
-which Python runtime Heroku will use.
+3.4.1 and have set ``python-3.4.1`` in the ``runtime.txt`` file that
+controls which Python runtime Heroku will use.
 
 Comments from Heroku suggest that they may discontinue providing shared
 libraries even for Python 3.4.1. If that is the case then it will be
