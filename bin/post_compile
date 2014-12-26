@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+WHISKEY_BUCKET=${WHISKEY_BUCKET:-modwsgi.org}
+WHISKEY_PACKAGE=whiskey-heroku-cedar14-apache-2.4.10.tar.gz
+WHISKEY_HOMEDIR=/app
+
+URL=https://s3.amazonaws.com/$WHISKEY_BUCKET/$WHISKEY_PACKAGE
+
+curl -o $WHISKEY_HOMEDIR/$WHISKEY_PACKAGE $URL
+tar -C $WHISKEY_HOMEDIR -x -v -z -f $WHISKEY_HOMEDIR/$WHISKEY_PACKAGE
+rm -f $WHISKEY_HOMEDIR/$WHISKEY_PACKAGE
+
+$WHISKEY_HOMEDIR/.whiskey/scripts/mod_wsgi-heroku-build
