@@ -97,4 +97,9 @@ mkdir -p $SERVER_ROOT
 
 SERVER_ARGS="--server-root $SERVER_ROOT --log-to-terminal --port $PORT"
 
+if test x"$NEW_RELIC_LICENSE_KEY" != x"" -o \
+        x"$NEW_RELIC_CONFIG_FILE" != x""; then
+    SERVER_ARGS="$SERVER_ARGS --with-newrelic"
+fi
+
 exec mod_wsgi-express start-server $SERVER_ARGS "$@"
